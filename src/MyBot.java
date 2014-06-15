@@ -189,3 +189,147 @@ private long startTime = 0;
    				
    			}
     	}
+
+
+
+
+
+//// Author 	: DekuSapling
+//// Date 	: 15 June 2014
+//
+//import org.jibble.pircbot.*;
+//
+//import java.util.Arrays;
+//import java.util.Random;
+//import java.util.ArrayList;
+//import java.util.Scanner;
+//import java.util.Collection;
+//
+//public class MyBot extends PircBot {
+//     
+//	private int limit = 0;
+//	private int amount = 0;
+//	private long startTime = 0;
+//	
+//	// move variables/objects that are hard coded to class variable/object status
+//	
+//	private Random RNG = new Random ();
+//	private ArrayList < Command> publicCommandList = new ArrayList < Command> ();
+//	private ArrayList < String> opList = new ArrayList < String> ();
+//	
+//	// conch messages 
+//	// stored as an arraylist, - defined in an array, and added to the arraylist on creation
+//	private ArrayList < String> conchMSG = new ArrayList < String> ( Arrays.asList ( 
+//			"It is certain.", "It is decidedly so.", "Better not to tell.",
+//			"You may rely on it.", "Don't count on it.", "My reply is no.",
+//			"Very doubtful.", "My sources say no.", "The future seems hazy on this.",
+//			"Signs point to yes.", "Outlook doesn't look good.", "Most likely.",
+//			"Unable to discern."));
+//	
+//	public MyBot () {
+//		this.setName ( "FeDenBot");
+//		init ();
+//    }    
+//	
+//	public void init () {
+		// one time setup call, initiallizes the various patternal commands
+//		publicCommandList.addAll ( ( Collection < Command>)Arrays.asList ( 
+//				new IntegerPartCommand ( "!eep", "Tanya's eep count is now ", ".", 0, 1), 
+//				new SimpleCommand ( "!anti", "Joke Time!"),
+//				new SimpleCommand ( "!bot", "Yep, I'm a bot"),
+//				new SimpleCommand ( "!arrows", "Pak needs arrows, Jimmies!"),
+//				new SimpleCommand ( "!boop", "Tanya, they booped you Kappa"),
+//				new SimpleCommand ( "!egnaro", "Egnaro!"),
+//				new SimpleCommand ( "!halp", "!help"),
+//				new SimpleCommand ( "!quote", "http://streamquotestakenwrongway.tumblr.com/"),
+//				new SimpleCommand ( "!orange", "Ooooorange!"),
+//				new SimpleCommand (	"!potato", "Poooootato!"),
+//				new SimpleCommand ( "!onion", "Quick! Pak needs an onion!"),
+//				new SimpleCommand ( "!stop", "If it is bad for you, you should probably stop."),
+//				new StringPartCommand ( "!coffee", "/me gives ", " a cup of coffee."),
+//				new StringPartCommand ( "!cookie", "/me gives ", " a cookie."),
+//				new StringPartCommand ( "!isthis", "", "?! No, this is Patrick!")
+//		));
+//	}
+//	
+//	public boolean isOpUser ( String sender) { return opList.contains ( sender);}
+//	
+//	public void onMessage ( String channel, String sender, String login, 
+//							String hostname, String message) {
+//
+//		if ( message.startsWith ( "!amount")) {
+//				sendMessage ( channel, "amount = " + amount);
+//		} else if ( message.startsWith ( "!end")) {
+//			if ( sender.equalsIgnoreCase ( "exogreenmc")) { quitServer ( "bye");}
+//			else if ( sender.equalsIgnoreCase ( "ironbeast01")) { quitServer ( "Iron did it!");}
+//			else if ( sender.equalsIgnoreCase( "dekusapling") || sender.equalsIgnoreCase ( "thegreatdekusapling")) { quitServer ( "Deku did it!");}
+//		} else if ( message.startsWith ( "!limit") && isOpUser ( sender)) { 
+//			limit = Integer.parseInt ( message.substring ( 7));
+//			sendMessage(channel,"You may now use the bot commands every " + limit + " messages");
+//		} else if ( message.startsWith ( "test")) {
+//			if ( isOpUser ( sender)) sendMessage ( channel, "Flying Colors!");
+//			else sendMessage ( channel, "Test Failed. Kappa");
+//		} else if ( amount >= limit ) {
+//			if ( message.startsWith ( "!conch")) {
+//				sendMessage ( channel, conchMSG.get( RNG.nextInt ( conchMSG.size ())));
+//			} else {		
+//				for ( Command c : publicCommandList) {
+//					if ( message.startsWith ( c.getQue ())) {
+//						sendMessage ( channel, c.process ( message));
+//					}
+//				}
+//			}
+//			amount = 0;
+//		} else { amount ++;}
+//	}
+//	
+//	protected abstract class Command {
+//		String que;
+//		public String getQue () { return que;}
+//		public String process ( String in) {}
+//	}
+//	
+//	private class SimpleCommand extends Command {
+//		String que, output;
+//		public SimpleCommand ( String que, String output) { 
+//			this.que = que; 
+//			this. output = output;
+//		}
+//		public String getQue () { return que;}
+//		public String process ( String in) { return output;}
+//	}
+//	
+//	private class StringPartCommand extends Command {
+//		String que, output1, output2;
+//		public StringPartCommand ( String que, String output1, String output2) { 
+//			this.que = que; 
+//			this.output1 = output1;
+//			this.output2 = output2;
+//		}
+//		public String getQue () { return que;}
+//		public String process ( String in) {
+//			Scanner scan = new Scanner ( in.substring ( que.length ()));
+//			String out = output1 + scan.next () + output2;
+//			scan.close ();
+//			return ( out);
+//		}
+//	}
+//	
+//	private class IntegerPartCommand extends Command {
+//		String que, output1, output2;
+//		int var, shift;
+//		public IntegerPartCommand ( String que, String output1, String output2, int var, int shift) {
+//			this.que = que;
+//			this.output1 = output1;
+//			this.output2 = output2;
+//			this.var = var;
+//			this.shift = shift;
+//		}
+//		public String getQue () { return que;}
+//		public String process ( String in) {
+//			var += shift;
+//			String out = output1 + var + output2;
+//			return ( out);
+//		}
+//	}
+//}
